@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "lastName": "Doe",
+      "firstName": "John",
+      "email": "test@gmail.com"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "content": "content",
+      "date": "2020-01-01",
+      "user": 1
+    }
+  ]
+}
