@@ -1,8 +1,16 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": "9da8",
+      "userName": "malek",
+      "email": "malek@gmail.com",
+      "passeWord": "malek123",
+      "confirmPasseWord": "malek123"
+    }
+  ],
   "posts": [
     {
-      "id": 1,
+      "id": "1",
       "title": "json-server",
       "content": "content",
       "date": "2020-01-01",

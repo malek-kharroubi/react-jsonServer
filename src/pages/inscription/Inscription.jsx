@@ -1,7 +1,8 @@
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
 import React from "react";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
+import { toast } from "react-hot-toast";
+import axios from "axios";
 
 export default function Inscription() {
   const {
@@ -12,11 +13,18 @@ export default function Inscription() {
   } = useForm();
 
   const onSubmit = (data) => {
-    if (data.motDePasse !== data.motDePasseConfirmation) {
+    if (data.passeWord !== data.confirmPasseWord) {
       toast.error("les mots de passe ne correspontdent pas");
     } else {
-      console.log(data);
-      toast.success("Inscription réussie");
+      axios
+        .post("http://localhost:3000/users", data)
+        .then((res) => {
+          console.log(res);
+          toast.success("Inscription réussie");
+        })
+        .catch((error) => {
+          toast.error("Une erreur est surbenue", error);
+        });
     }
   };
   return (
@@ -48,7 +56,7 @@ export default function Inscription() {
               variant="outlined"
               fullWidth
               size="small"
-              {...register("nomUtilisateur", {
+              {...register("userName", {
                 required: "Veuillez saisir un nom",
                 minLength: {
                   value: 5,
@@ -63,7 +71,7 @@ export default function Inscription() {
               fullWidth
               size="small"
               type="email"
-              {...register("mailUtilisateur", {
+              {...register("email", {
                 required: "Veuillez saisir votre adresse mail",
                 pattern: "/^[w-.]+@([w-]+.)+[w-]{2,4}$/",
               })}
@@ -75,7 +83,7 @@ export default function Inscription() {
               fullWidth
               size="small"
               type="password"
-              {...register("motDePasse", {
+              {...register("passeWord", {
                 required: "Veuillez saisir un mot de passe",
                 minLength: {
                   value: 6,
@@ -91,7 +99,7 @@ export default function Inscription() {
               fullWidth
               size="small"
               type="password"
-              {...register("motDePasseConfirmation", {
+              {...register("confirmPasseWord", {
                 required: "Veuillez confir mer votre mot de passe",
                 minLength: {
                   value: 6,
