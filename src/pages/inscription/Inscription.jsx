@@ -3,8 +3,10 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export default function Inscription() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -17,13 +19,22 @@ export default function Inscription() {
       toast.error("les mots de passe ne correspontdent pas");
     } else {
       axios
-        .post("http://localhost:3000/users", data)
+        .get(`http://localhost:3000/users?email=${data.email}`)
         .then((res) => {
-          console.log(res);
-          toast.success("Inscription réussie");
-        })
-        .catch((error) => {
-          toast.error("Une erreur est surbenue", error);
+          if (res.data.length > 0) {
+            toast.error("Cette adresse email est déjà utilisée");
+          } else {
+            axios
+              .post("http://localhost:3000/users", data)
+              .then((res) => {
+                console.log(res);
+                toast.success("Inscription réussie");
+                navigate("/connection");
+              })
+              .catch((error) => {
+                toast.error("Une erreur est surbenue", error);
+              });
+          }
         });
     }
   };
