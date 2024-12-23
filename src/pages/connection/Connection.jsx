@@ -1,5 +1,5 @@
 import { Box, Button, Stack, TextField, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import axios from "axios";
@@ -7,6 +7,12 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function Connection() {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("user")) {
+      navigate("/");
+    } // TODO: Vérifier si l'utilisateur est déjà connecté et rediriger vers la page d'accueil
+  });
   const {
     register,
     handleSubmit,
