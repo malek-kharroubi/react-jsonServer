@@ -33,6 +33,24 @@
       "publicationDate": "2024-12-26T10:13:10.620Z",
       "publicationLike": 0,
       "auther": "malek"
+    },
+    {
+      "id": "baa5",
+      "textePublication": "salut, c toujours moi",
+      "imagePublication": "https://img.freepik.com/vecteurs-libre/ceremonie-remise-diplomes-virtuelle-diplome-universitaire_23-2148571732.jpg?t=st=1735211788~exp=1735215388~hmac=4591515d49efb20998edea18202ba79d8f397fbc244f72bf53b48e5c728bd8b6&w=740",
+      "userId": "9da8",
+      "publicationDate": "2024-12-26T11:16:46.883Z",
+      "publicationLike": 0,
+      "auther": "malek"
+    },
+    {
+      "id": "1dda",
+      "textePublication": "hello, je suis nouveau",
+      "imagePublication": "https://as1.ftcdn.net/v2/jpg/03/67/97/90/1000_F_367979072_UdBgmIp2RuFgLsbruOMBVmruR6jCDqfX.jpg",
+      "userId": "9da8",
+      "publicationDate": "2024-12-26T11:28:12.737Z",
+      "publicationLike": 0,
+      "auther": "malek"
     }
   ]
 }

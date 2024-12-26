@@ -1,4 +1,5 @@
 import { Button, Stack, TextField } from "@mui/material";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -13,6 +14,21 @@ export default function AddPublication() {
     formState: { errors },
   } = useForm();
 
+  const useQuery = useQueryClient();
+  const mutation = useMutation({
+    mutationFn: (newPub) => {
+      return axios.post("http://localhost:3000/posts", newPub);
+    },
+    onError: (error) => {
+      toast.error("Une error est survenue", error);
+    },
+    onSuccess: () => {
+      reset();
+      useQuery.invalidateQueries("publications");
+      toast.success("Publication ajoutée avec succès");
+    },
+  });
+
   const onSubmit = (data) => {
     const publication = {
       ...data,
@@ -21,17 +37,18 @@ export default function AddPublication() {
       publicationLike: 0,
       auther: user.userName,
     };
-    axios
-      .post("http://localhost:3000/posts", publication)
-      .then((res) => {
-        console.log(res.data);
-        toast.success("Publication ajoutée");
-        reset();
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error("Une erreur est survenue");
-      });
+    mutation.mutate(publication);
+    // axios
+    //   .post("http://localhost:3000/posts", publication)
+    //   .then((res) => {
+    //     console.log(res.data);
+    //     toast.success("Publication ajoutée");
+    //     reset();
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     toast.error("Une erreur est survenue");
+    //   });
   };
   return (
     <Stack width={"60%"} margin={"auto"}>
