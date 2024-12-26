@@ -17,11 +17,22 @@
   ],
   "posts": [
     {
-      "id": "1",
-      "title": "json-server",
-      "content": "content",
-      "date": "2020-01-01",
-      "user": 1
+      "id": "fcd2",
+      "textePublication": "Bonjour les amis",
+      "imagePublication": "https://img.freepik.com/vecteurs-premium/saut-heureux-illustration-vectorielle-plane-travailleurs-bureau-employes-entreprise-dynamiques-dessinent-personnages-jeunes-etudiants-hommes-femmes-habilles-desinvolture-clipart-isole-divers-groupes-personnes_197582-38.jpg?w=740",
+      "userId": "9da8",
+      "publicationDate": "2024-12-26T10:10:01.871Z",
+      "publicationLike": 0,
+      "auther": "malek"
+    },
+    {
+      "id": "f78b",
+      "textePublication": "bonjour, c'est encore moi",
+      "imagePublication": "https://img.freepik.com/vecteurs-libre/concept-collecte-enseignants_52683-37015.jpg?t=st=1735207978~exp=1735211578~hmac=5ff387c604f929dab04340c80624c91f424c56ed335ffa9fad5222a2dd0dd822&w=740",
+      "userId": "9da8",
+      "publicationDate": "2024-12-26T10:13:10.620Z",
+      "publicationLike": 0,
+      "auther": "malek"
     }
   ]
 }

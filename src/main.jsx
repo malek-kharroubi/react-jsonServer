@@ -6,6 +6,10 @@ import Dashboard from "./pages/dashboard/dashboard.jsx";
 import Connection from "./pages/connection/connection.jsx";
 import Inscription from "./pages/inscription/inscription.jsx";
 import { Toaster } from "react-hot-toast";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+const queryCient = new QueryClient();
+
 //Create browserRouter object
 const router = createBrowserRouter([
   {
@@ -24,7 +28,9 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <Toaster />
-    <RouterProvider router={router}></RouterProvider>
+    <QueryClientProvider client={queryCient}>
+      <Toaster />
+      <RouterProvider router={router}></RouterProvider>
+    </QueryClientProvider>
   </StrictMode>
 );
